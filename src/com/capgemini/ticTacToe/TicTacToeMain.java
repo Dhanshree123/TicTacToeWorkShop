@@ -18,6 +18,16 @@ public class TicTacToeMain {
 
 		System.out.println("Show board");
 		TicTacToeGame.showBoard();
+		
+		System.out.println("User enter your choice(head/tail)");
+		String toss = sc.next();
+		int toss_result;
+		String result = TicTacToeGame.doToss(toss);
+		if (result.equals("USER"))
+			toss_result = 1;
+		else
+			toss_result = 2;
+		System.out.println(result + " won the toss");
 
 		System.out.println("User Make Your move");
 		System.out.println("Enter index you want from 1 to 9");

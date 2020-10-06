@@ -58,4 +58,15 @@ public class TicTacToeGame {
 
 	}
 
+	// UC6 - Do Toss
+	public static String doToss(String toss) {
+		int t;
+		if (toss.equalsIgnoreCase("head"))
+			t = 0;
+		else
+			t = 1;
+		int tossResult = (int) Math.floor(Math.random() * 10) % 2;
+		return (tossResult == t) ? "USER" : "COMPUTER";
+	}
+
 }
