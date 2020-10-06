@@ -80,4 +80,27 @@ public class TicTacToeGame {
 				|| (board[3] == c && board[6] == c && board[9] == c));
 	}
 
+	// UC 8 - Play Game
+
+	public static boolean isBoardHavingFreeSpace() {
+		boolean flag = false;
+		for (int i = 1; i < 10; i++)
+			if (board[i] == ' ')
+				flag = true;
+		return flag;
+	}
+
+	public static void computerMakeMove(char c) {
+		int index = (int) (Math.floor(Math.random() * 10) % 9) + 1;
+		if (isIndexEmpty(index)) {
+			board[index] = c;
+			showBoard();
+		} else {
+			System.out.println("The index is already filled");
+			System.out.println("Enter different index");
+			index = (int) (Math.floor(Math.random() * 10) % 9) + 1;
+			computerMakeMove(c);
+		}
+	}
+
 }
