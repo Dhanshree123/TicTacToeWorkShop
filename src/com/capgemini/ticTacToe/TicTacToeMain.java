@@ -18,7 +18,7 @@ public class TicTacToeMain {
 
 		System.out.println("Show board");
 		TicTacToeGame.showBoard();
-		
+
 		System.out.println("User enter your choice(head/tail)");
 		String toss = sc.next();
 		int toss_result;
@@ -29,12 +29,23 @@ public class TicTacToeMain {
 			toss_result = 2;
 		System.out.println(result + " won the toss");
 
-		System.out.println("User Make Your move");
-		System.out.println("Enter index you want from 1 to 9");
-		int index_move = sc.nextInt();
-		System.out.println("Enter your move");
-		char move = sc.next().charAt(0);
-		TicTacToeGame.makeMove(index_move, move);
+		while (true) {
+			System.out.println("User Make Your move");
+			System.out.println("Enter index you want from 1 to 9");
+			int index_move = sc.nextInt();
+			TicTacToeGame.makeMove(index_move, inputs[0]);
+
+			System.out.println("Do you want to enter again(Y/N)");
+			String ans = sc.next();
+			if (ans.equalsIgnoreCase("N"))
+				break;
+		}
+
+		boolean winner = TicTacToeGame.viewWiningConditions(inputs[0]);
+		if (winner == true)
+			System.out.println("User won");
+		else
+			System.out.println("Computer won");
 
 		sc.close();
 	}

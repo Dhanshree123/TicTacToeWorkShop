@@ -69,4 +69,15 @@ public class TicTacToeGame {
 		return (tossResult == t) ? "USER" : "COMPUTER";
 	}
 
+	// UC 7 - Wining Conditions
+	public static boolean viewWiningConditions(char c) {
+		return ((board[1] == c && board[2] == c && board[3] == c) || (board[4] == c && board[5] == c && board[6] == c)
+				|| (board[7] == c && board[8] == c && board[9] == c)
+				|| (board[1] == c && board[5] == c && board[9] == c)
+				|| (board[3] == c && board[5] == c && board[7] == c)
+				|| (board[1] == c && board[4] == c && board[7] == c)
+				|| (board[2] == c && board[5] == c && board[8] == c)
+				|| (board[3] == c && board[6] == c && board[9] == c));
+	}
+
 }
