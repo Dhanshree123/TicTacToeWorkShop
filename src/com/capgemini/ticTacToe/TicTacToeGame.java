@@ -43,6 +43,18 @@ public class TicTacToeGame {
 			return true;
 		} else
 			return false;
+	}
+
+	// UC 5 - Make move
+	public static void makeMove(int index, char move) {
+		if (isIndexEmpty(index)) {
+			board[index] = move;
+			showBoard();
+		} else {
+			System.out.println("The index is already filled");
+			System.out.println("Enter different index");
+			makeMove(SC.nextInt(), move);
+		}
 
 	}
 
