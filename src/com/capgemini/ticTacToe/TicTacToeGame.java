@@ -37,4 +37,13 @@ public class TicTacToeGame {
 		}
 	}
 
+	// UC 4 - Check index to Make move
+	public static boolean isIndexEmpty(int index) {
+		if (index <= 9 && index > 0 && board[index] == ' ') {
+			return true;
+		} else
+			return false;
+
+	}
+
 }

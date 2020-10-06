@@ -1,8 +1,12 @@
 package com.capgemini.ticTacToe;
 
+import java.util.Scanner;
+
 public class TicTacToeMain {
 
 	public static void main(String[] args) {
+
+		Scanner sc = new Scanner(System.in);
 		System.out.println("Welcome to game");
 
 		TicTacToeGame.createBoard();
@@ -14,5 +18,16 @@ public class TicTacToeMain {
 
 		System.out.println("Show board");
 		TicTacToeGame.showBoard();
+
+		System.out.println("User check index to Make Your move");
+		System.out.println("Enter index you want from 1 to 9");
+		int index = sc.nextInt();
+		boolean check = TicTacToeGame.isIndexEmpty(index);
+		if (check == true)
+			System.out.println("Index is free");
+		else
+			System.out.println("Index already filled");
+
+		sc.close();
 	}
 }
