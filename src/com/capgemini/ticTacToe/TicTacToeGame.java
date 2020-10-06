@@ -29,4 +29,12 @@ public class TicTacToeGame {
 
 	}
 
+	// UC 3 - Show Board
+	public static void showBoard() {
+		for (int i = 1; i < 10; i++) {
+			System.out.print(board[i++] + " | " + board[i++] + " | " + board[i]);
+			System.out.println();
+		}
+	}
+
 }

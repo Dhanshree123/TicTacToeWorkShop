@@ -11,5 +11,8 @@ public class TicTacToeMain {
 		char inputs[] = TicTacToeGame.userInput();
 		System.out.println("User input " + inputs[0]);
 		System.out.println("Computer input " + inputs[1]);
+
+		System.out.println("Show board");
+		TicTacToeGame.showBoard();
 	}
 }
