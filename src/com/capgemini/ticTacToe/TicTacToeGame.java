@@ -80,7 +80,7 @@ public class TicTacToeGame {
 				|| (board[3] == c && board[6] == c && board[9] == c));
 	}
 
-	// UC 8 - Play Game
+	// UC 8 - Make Computer Play Game
 
 	public static boolean isBoardHavingFreeSpace() {
 		boolean flag = false;
@@ -91,16 +91,74 @@ public class TicTacToeGame {
 	}
 
 	public static void computerMakeMove(char c) {
-		int index = (int) (Math.floor(Math.random() * 10) % 9) + 1;
+		char userInp;
+		if (c == 'X')
+			userInp = 'O';
+		else
+			userInp = 'X';
+		int index = getPositionToBlock(userInp);
 		if (isIndexEmpty(index)) {
 			board[index] = c;
 			showBoard();
 		} else {
 			System.out.println("The index is already filled");
 			System.out.println("Enter different index");
-			index = (int) (Math.floor(Math.random() * 10) % 9) + 1;
+			index = getPositionToBlock(userInp);
 			computerMakeMove(c);
 		}
+	}
+
+	// UC 9 - Block Opponent
+
+	public static int getPositionToBlock(char c) {
+
+		if ((board[2] == c && board[3] == c) || (board[4] == c && board[7] == c) || (board[5] == c && board[9] == c)) {
+			if (isIndexEmpty(1))
+				return 1;
+		}
+
+		if ((board[1] == c && board[3] == c) || (board[5] == c && board[8] == c)) {
+			if (isIndexEmpty(2))
+				return 2;
+		}
+
+		if ((board[1] == c && board[2] == c) || (board[6] == c && board[9] == c) || (board[5] == c && board[7] == c)) {
+			if (isIndexEmpty(3))
+				return 3;
+		}
+
+		if ((board[1] == c && board[7] == c) || (board[5] == c && board[6] == c)) {
+			if (isIndexEmpty(4))
+				return 4;
+		}
+
+		if ((board[2] == c && board[8] == c) || (board[4] == c && board[6] == c) || (board[1] == c && board[9] == c)
+				|| (board[3] == c && board[7] == c)) {
+			if (isIndexEmpty(5))
+				return 5;
+		}
+
+		if ((board[3] == c && board[9] == c) || (board[4] == c && board[5] == c)) {
+			if (isIndexEmpty(6))
+				return 6;
+		}
+
+		if ((board[1] == c && board[4] == c) || (board[8] == c && board[9] == c) || (board[5] == c && board[3] == c)) {
+			if (isIndexEmpty(7))
+				return 7;
+		}
+
+		if ((board[2] == c && board[5] == c) || (board[7] == c && board[9] == c)) {
+			if (isIndexEmpty(8))
+				return 8;
+		}
+
+		if ((board[7] == c && board[8] == c) || (board[3] == c && board[6] == c) || (board[5] == c && board[1] == c)) {
+			if (isIndexEmpty(9))
+				return 9;
+		}
+
+		return (int) (Math.floor(Math.random() * 10) % 9) + 1;
 	}
 
 }
