@@ -1,5 +1,6 @@
 package com.capgemini.ticTacToe;
 
+import java.util.Random;
 import java.util.Scanner;
 
 public class TicTacToeGame {
@@ -99,9 +100,15 @@ public class TicTacToeGame {
 		int index = getPositionToBlock(userInp);
 		if (index == 0) {
 			int availableCorner = getAvailableCorner();
-			if (availableCorner == 0)
-				index = (int) (Math.floor(Math.random() * 10) % 9) + 1;
-			else
+			if (availableCorner == 0) {
+				if (isIndexEmpty(5))
+					index = 5;
+				else {
+					int[] sides = new int[] { 2, 4, 6, 8 };
+					Random random = new Random();
+					index = sides[random.nextInt(sides.length)];
+				}
+			} else
 				index = availableCorner;
 		}
 		if (isIndexEmpty(index)) {
