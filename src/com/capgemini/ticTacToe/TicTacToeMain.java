@@ -65,7 +65,7 @@ public class TicTacToeMain {
 				TicTacToeGame.computerMakeMove(inputs[1]);
 				boolean resultComputer = TicTacToeGame.viewWiningConditions(inputs[1]);
 				if (resultComputer == true) {
-					System.out.println("Computer won");
+					System.out.println("Game over!!! Computer won");
 					flag = true;
 					break;
 				}
@@ -78,7 +78,7 @@ public class TicTacToeMain {
 				TicTacToeGame.makeMove(index_move, inputs[0]);
 				boolean resultUser = TicTacToeGame.viewWiningConditions(inputs[0]);
 				if (resultUser == true) {
-					System.out.println("User won");
+					System.out.println("Game over!!! User won");
 					flag = true;
 					break;
 				}
@@ -89,7 +89,7 @@ public class TicTacToeMain {
 
 		}
 		if (flag == false)
-			System.out.println("Game is Draw");
+			System.out.println("Game over!!! Game is Draw");
 
 		sc.close();
 	}
