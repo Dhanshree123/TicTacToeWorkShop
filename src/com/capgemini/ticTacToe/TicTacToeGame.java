@@ -97,13 +97,19 @@ public class TicTacToeGame {
 		else
 			userInp = 'X';
 		int index = getPositionToBlock(userInp);
+		if (index == 0) {
+			int availableCorner = getAvailableCorner();
+			if (availableCorner == 0)
+				index = (int) (Math.floor(Math.random() * 10) % 9) + 1;
+			else
+				index = availableCorner;
+		}
 		if (isIndexEmpty(index)) {
 			board[index] = c;
 			showBoard();
 		} else {
 			System.out.println("The index is already filled");
 			System.out.println("Enter different index");
-			index = getPositionToBlock(userInp);
 			computerMakeMove(c);
 		}
 	}
@@ -158,7 +164,22 @@ public class TicTacToeGame {
 				return 9;
 		}
 
-		return (int) (Math.floor(Math.random() * 10) % 9) + 1;
+		return 0;
+	}
+
+	// UC 10 - Get Corner
+
+	public static int getAvailableCorner() {
+		if (isIndexEmpty(1))
+			return 1;
+		else if (isIndexEmpty(3))
+			return 3;
+		else if (isIndexEmpty(7))
+			return 7;
+		else if (isIndexEmpty(9))
+			return 9;
+		else
+			return 0;
 	}
 
 }
